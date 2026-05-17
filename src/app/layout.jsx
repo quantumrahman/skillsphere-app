@@ -11,10 +11,12 @@ export const metadata = {
     description: '',
 };
 
-export const RootLayout = ({ children }) => {
+const RootLayout = ({ children }) => {
     return (
         <html lang='en' className={`${geist.variable} h-full antialiased`}>
             <body className='min-h-full'>{children}</body>
         </html>
     );
 };
+
+export default RootLayout;

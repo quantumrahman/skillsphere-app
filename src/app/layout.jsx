@@ -13,7 +13,7 @@ export const metadata = {
 
 const RootLayout = ({ children }) => {
     return (
-        <html lang='en' className={`${geist.variable} h-full antialiased`}>
+        <html lang='en' className={`${geist.variable} h-full antialiased bg-[#000]`}>
             <body className='min-h-full'>{children}</body>
         </html>
     );

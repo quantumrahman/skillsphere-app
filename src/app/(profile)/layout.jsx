@@ -12,7 +12,7 @@ export const metadata = {
 
 const ProfileLayout = ({ children }) => {
     return (
-        <div className={`w-full min-h-screen antialiased ${geist.variable}`}>
+        <div className={`w-full min-h-screen relative antialiased ${geist.variable}`}>
             {children}
         </div>
     );

@@ -1,7 +1,7 @@
-import { Geist } from 'next/font/google';
+import { Bricolage_Grotesque } from 'next/font/google';
 
-const geist = Geist({
-    variable: '--font-geist-sans',
+const bricolageGrotesque = Bricolage_Grotesque({
+    variable: '--font-bricolage-sans',
     subsets: ['latin'],
 });
 
@@ -13,7 +13,7 @@ export const metadata = {
 const AuthLayout = ({ children }) => {
     return (
         <div
-            className={`w-full min-h-screen relative antialiased ${geist.variable}`}
+            className={`${bricolageGrotesque.variable} w-full min-h-screen relative antialiased`}
         >
             {children}
         </div>

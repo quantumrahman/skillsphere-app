@@ -1,8 +1,8 @@
-import { Geist } from 'next/font/google';
+import { Bricolage_Grotesque } from 'next/font/google';
 import './globals.css';
 
-const geist = Geist({
-    variable: '--font-geist-sans',
+const bricolageGrotesque = Bricolage_Grotesque({
+    variable: '--font-bricolage-sans',
     subsets: ['latin'],
 });
 
@@ -13,7 +13,10 @@ export const metadata = {
 
 const RootLayout = ({ children }) => {
     return (
-        <html lang='en' className={`${geist.variable} h-full antialiased bg-[#000]`}>
+        <html
+            lang='en'
+            className={`${bricolageGrotesque.variable} h-full antialiased bg-[#000000]`}
+        >
             <body className='min-h-full'>{children}</body>
         </html>
     );

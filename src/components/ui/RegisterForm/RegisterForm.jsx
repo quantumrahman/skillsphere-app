@@ -1,17 +1,32 @@
 'use client';
 
 import { AlertCircle, Eye, EyeSlash } from '@boxicons/react';
+import { registerSchema } from '@/schema/authSchema';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 
 const RegisterForm = () => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({
+        resolver: zodResolver(registerSchema),
+    });
+
     const [togglePassword, setTogglePassword] = useState(false);
 
     const handleTogglePassword = () => {
         setTogglePassword((prev) => !prev);
     };
 
+    const handleOnSubmit = (data) => {
+        console.log(data);
+    };
+
     return (
-        <form>
+        <form onSubmit={handleSubmit(handleOnSubmit)}>
             <div className='space-y-1.5'>
                 <div className='w-full flex items-center justify-center gap-3'>
                     <div className='w-full space-y-1.5'>
@@ -19,13 +34,21 @@ const RegisterForm = () => {
                             type='text'
                             aria-label='input'
                             placeholder='Enter your name'
-                            className='w-full py-3 px-4 bg-[#1e1e1e]/30 border border-[#1e1e1e] rounded-full text-sm font-normal text-[#ffffff] caret-[#ff851b] placeholder:text-[#ffffff]/30 focus:outline-none focus:border-[#ff851b]'
+                            name='name'
+                            className={`w-full py-3 px-4 bg-[#1e1e1e]/30 border rounded-full text-sm font-normal text-[#ffffff] caret-[#ff851b] placeholder:text-[#ffffff]/30 focus:outline-none ${errors?.name ? 'border-red-500' : 'border-[#1e1e1e] focus:border-[#ff851b]'}`}
+                            {...register('name')}
                         />
                         <div className='w-full h-5'>
-                            {/* <span className='flex items-center gap-1 text-sm text-red-500 justify-end'>
-                                <AlertCircle pack='filled' color='red' size='xs' />
-                                Please enter your password.
-                            </span> */}
+                            {errors?.name && (
+                                <span className='flex items-center gap-1 text-sm text-red-500 justify-end'>
+                                    <AlertCircle
+                                        pack='filled'
+                                        color='red'
+                                        size='xs'
+                                    />
+                                    {errors?.name?.message}
+                                </span>
+                            )}
                         </div>
                     </div>
                     <div className='w-full space-y-1.5'>
@@ -33,13 +56,21 @@ const RegisterForm = () => {
                             type='text'
                             aria-label='input'
                             placeholder='Enter photo url'
-                            className='w-full py-3 px-4 bg-[#1e1e1e]/30 border border-[#1e1e1e] rounded-full text-sm font-normal text-[#ffffff] caret-[#ff851b] placeholder:text-[#ffffff]/30 focus:outline-none focus:border-[#ff851b]'
+                            name='photo'
+                            className={`w-full py-3 px-4 bg-[#1e1e1e]/30 border rounded-full text-sm font-normal text-[#ffffff] caret-[#ff851b] placeholder:text-[#ffffff]/30 focus:outline-none ${errors?.photo ? 'border-red-500' : 'border-[#1e1e1e] focus:border-[#ff851b]'}`}
+                            {...register('photo')}
                         />
                         <div className='w-full h-5'>
-                            {/* <span className='flex items-center gap-1 text-sm text-red-500 justify-end'>
-                                <AlertCircle pack='filled' color='red' size='xs' />
-                                Please enter your password.
-                            </span> */}
+                            {errors?.photo && (
+                                <span className='flex items-center gap-1 text-sm text-red-500 justify-end'>
+                                    <AlertCircle
+                                        pack='filled'
+                                        color='red'
+                                        size='xs'
+                                    />
+                                    {errors?.photo?.message}
+                                </span>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -48,13 +79,21 @@ const RegisterForm = () => {
                         type='text'
                         aria-label='input'
                         placeholder='Enter your email'
-                        className='w-full py-3 px-4 bg-[#1e1e1e]/30 border border-[#1e1e1e] rounded-full text-sm font-normal text-[#ffffff] caret-[#ff851b] placeholder:text-[#ffffff]/30 focus:outline-none focus:border-[#ff851b]'
+                        name='email'
+                        className={`w-full py-3 px-4 bg-[#1e1e1e]/30 border rounded-full text-sm font-normal text-[#ffffff] caret-[#ff851b] placeholder:text-[#ffffff]/30 focus:outline-none ${errors?.email ? 'border-red-500' : 'border-[#1e1e1e] focus:border-[#ff851b]'}`}
+                        {...register('email')}
                     />
                     <div className='w-full h-5'>
-                        {/* <span className='flex items-center gap-1 text-sm text-red-500 justify-end'>
-                            <AlertCircle pack='filled' color='red' size='xs' />
-                            Please enter your password.
-                        </span> */}
+                        {errors?.email && (
+                            <span className='flex items-center gap-1 text-sm text-red-500 justify-end'>
+                                <AlertCircle
+                                    pack='filled'
+                                    color='red'
+                                    size='xs'
+                                />
+                                {errors?.email?.message}
+                            </span>
+                        )}
                     </div>
                 </div>
                 <div className='w-full space-y-1.5'>
@@ -63,7 +102,9 @@ const RegisterForm = () => {
                             type={togglePassword ? 'text' : 'password'}
                             aria-label='input'
                             placeholder='Enter your password'
-                            className='w-full py-3 pl-4 pr-13 bg-[#1e1e1e]/30 border border-[#1e1e1e] rounded-full text-sm font-normal text-[#ffffff] caret-[#ff851b] placeholder:text-[#ffffff]/30 focus:outline-none focus:border-[#ff851b]'
+                            name='password'
+                            className={`w-full py-3 px-4 bg-[#1e1e1e]/30 border rounded-full text-sm font-normal text-[#ffffff] caret-[#ff851b] placeholder:text-[#ffffff]/30 focus:outline-none ${errors?.password ? 'border-red-500' : 'border-[#1e1e1e] focus:border-[#ff851b]'}`}
+                            {...register('password')}
                         />
                         <button
                             type='button'
@@ -80,10 +121,16 @@ const RegisterForm = () => {
                         </button>
                     </div>
                     <div className='w-full h-5'>
-                        {/* <span className='flex items-center gap-1 text-sm text-red-500 justify-end'>
-                            <AlertCircle pack='filled' color='red' size='xs' />
-                            Please enter your password.
-                        </span> */}
+                        {errors?.password && (
+                            <span className='flex items-center gap-1 text-sm text-red-500 justify-end'>
+                                <AlertCircle
+                                    pack='filled'
+                                    color='red'
+                                    size='xs'
+                                />
+                                {errors?.password?.message}
+                            </span>
+                        )}
                     </div>
                 </div>
                 <button

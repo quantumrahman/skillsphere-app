@@ -26,10 +26,7 @@ export const registerSchema = z.object({
         .string()
         .trim()
         .nonempty({
-            message: 'Please enter your name.',
-        })
-        .min(4, {
-            message: 'Name must be at least 20 characters.',
+            message: 'Enter your name.',
         })
         .regex(/^[A-Za-z\s]+$/, {
             message: 'Name can only contain letters and spaces',
@@ -39,10 +36,10 @@ export const registerSchema = z.object({
         .string()
         .trim()
         .nonempty({
-            message: 'Please enter photo your.',
+            message: 'Enter your photo.',
         })
         .url({
-            message: 'Please enter a valid url.',
+            message: 'Enter a valid url.',
         }),
 
     email: z
@@ -62,6 +59,6 @@ export const registerSchema = z.object({
             message: 'Please enter your password.',
         })
         .min(8, {
-            message: 'Password must be at least 8 characters.',
+            message: 'Password min 8 chars.',
         }),
 });

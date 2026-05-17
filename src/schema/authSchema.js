@@ -2,32 +2,66 @@ import z from 'zod';
 
 export const loginSchema = z.object({
     email: z
-        .string({ message: 'Please enter your email.' })
+        .string()
         .trim()
-        .email({ message: 'Please enter a valid email.' }),
+        .nonempty({
+            message: 'Please enter your email.',
+        })
+        .email({
+            message: 'Please enter a valid email.',
+        }),
     password: z
-        .string({ message: 'Please enter your password.' })
+        .string()
         .trim()
-        .min(8, { message: 'Min 8 chars password.' })
-        .max(16, { message: 'Max 16 chars password.' }),
+        .nonempty({
+            message: 'Please enter your password.',
+        })
+        .min(8, {
+            message: 'Password min 8 chars.',
+        }),
 });
 
 export const registerSchema = z.object({
     name: z
-        .string({ message: 'Please enter your name.' })
+        .string()
         .trim()
-        .min(1, { message: 'Name is required.' }),
-    url: z
-        .string({ message: 'Please enter your photo url.' })
+        .nonempty({
+            message: 'Please enter your name.',
+        })
+        .min(4, {
+            message: 'Name must be at least 20 characters.',
+        })
+        .regex(/^[A-Za-z\s]+$/, {
+            message: 'Name can only contain letters and spaces',
+        }),
+
+    photo: z
+        .string()
         .trim()
-        .url({ message: 'Please enter valid a url.' }),
+        .nonempty({
+            message: 'Please enter photo your.',
+        })
+        .url({
+            message: 'Please enter a valid url.',
+        }),
+
     email: z
-        .string({ message: 'Please enter your email.' })
+        .string()
         .trim()
-        .email({ message: 'Please enter a valid email.' }),
+        .nonempty({
+            message: 'Please enter your email.',
+        })
+        .email({
+            message: 'Please enter a valid email.',
+        }),
+
     password: z
-        .string({ message: 'Please enter your password.' })
+        .string()
         .trim()
-        .min(8, { message: 'Min 8 chars password.' })
-        .max(16, { message: 'Max 16 chars password.' }),
+        .nonempty({
+            message: 'Please enter your password.',
+        })
+        .min(8, {
+            message: 'Password must be at least 8 characters.',
+        }),
 });

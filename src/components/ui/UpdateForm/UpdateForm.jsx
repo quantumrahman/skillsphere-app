@@ -4,6 +4,9 @@ import { updateSchema } from '@/schema/updateSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { AlertCircle } from '@boxicons/react';
+import { authClient } from '@/lib/auth-client';
+import toast from 'react-hot-toast';
+import ToastMessage from '../ToastMessage/ToastMessage';
 
 const UpdateForm = () => {
     const {
@@ -14,8 +17,29 @@ const UpdateForm = () => {
         resolver: zodResolver(updateSchema),
     });
 
-    const handleOnSubmit = (data) => {
-        console.log(data);
+    const handleOnSubmit = async (data) => {
+        const { data: session, error } = await authClient.updateUser({
+            image: data?.photo,
+            name: data?.name,
+        });
+
+        if (session?.status) {
+            toast.custom(
+                <ToastMessage
+                    message={'Profile updated successfully.'}
+                    type='success'
+                />,
+            );
+        }
+
+        if (error) {
+            toast.custom(
+                <ToastMessage
+                    message={'Something went wrong. Try again.'}
+                    type='error'
+                />,
+            );
+        }
     };
 
     return (
@@ -33,7 +57,11 @@ const UpdateForm = () => {
                     <div className='w-full h-5'>
                         {errors?.name && (
                             <span className='flex items-center gap-1 text-sm text-red-500 justify-end'>
-                                <AlertCircle pack='filled' color='red' size='xs' />
+                                <AlertCircle
+                                    pack='filled'
+                                    color='red'
+                                    size='xs'
+                                />
                                 {errors?.name?.message}
                             </span>
                         )}
@@ -51,7 +79,11 @@ const UpdateForm = () => {
                     <div className='w-full h-5'>
                         {errors?.photo && (
                             <span className='flex items-center gap-1 text-sm text-red-500 justify-end'>
-                                <AlertCircle pack='filled' color='red' size='xs' />
+                                <AlertCircle
+                                    pack='filled'
+                                    color='red'
+                                    size='xs'
+                                />
                                 {errors?.photo?.message}
                             </span>
                         )}

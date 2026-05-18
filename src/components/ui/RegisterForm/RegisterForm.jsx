@@ -7,6 +7,9 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { authClient } from '@/lib/auth-client';
 
+import toast from 'react-hot-toast';
+import ToastMessage from '../ToastMessage/ToastMessage';
+
 const RegisterForm = () => {
     const {
         register,
@@ -30,7 +33,23 @@ const RegisterForm = () => {
             image: data?.photo,
         });
 
-        console.log({session, error});
+        if (session) {
+            toast.custom(
+                <ToastMessage
+                    message={'Account created successfully.'}
+                    type='success'
+                />,
+            );
+        }
+
+        if (error) {
+            toast.custom(
+                <ToastMessage
+                    message={'Account already exists. Please log in.'}
+                    type='error'
+                />,
+            );
+        }
     };
 
     return (

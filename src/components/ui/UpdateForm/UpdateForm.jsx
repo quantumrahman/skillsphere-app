@@ -5,6 +5,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { AlertCircle } from '@boxicons/react';
 import { authClient } from '@/lib/auth-client';
+import { redirect } from 'next/navigation';
+
 import toast from 'react-hot-toast';
 import ToastMessage from '../ToastMessage/ToastMessage';
 
@@ -30,6 +32,7 @@ const UpdateForm = () => {
                     type='success'
                 />,
             );
+            redirect('/profile');
         }
 
         if (error) {

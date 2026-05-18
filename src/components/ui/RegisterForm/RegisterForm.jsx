@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { authClient } from '@/lib/auth-client';
+import { redirect } from 'next/navigation';
 
 import toast from 'react-hot-toast';
 import ToastMessage from '../ToastMessage/ToastMessage';
@@ -40,6 +41,7 @@ const RegisterForm = () => {
                     type='success'
                 />,
             );
+            redirect('/auth/login');
         }
 
         if (error) {

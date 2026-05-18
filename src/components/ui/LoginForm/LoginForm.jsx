@@ -5,6 +5,7 @@ import { loginSchema } from '@/schema/authSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+import { authClient } from '@/lib/auth-client';
 
 const LoginForm = () => {
     const {
@@ -21,8 +22,13 @@ const LoginForm = () => {
         setTogglePassword((prev) => !prev);
     };
 
-    const handleOnSubmit = (data) => {
-        console.log(data);
+    const handleOnSubmit = async (data) => {
+        const { data: session, error } = await authClient.signIn.email({
+            email: data?.email,
+            password: data?.password,
+        });
+
+        console.log({ session, error });
     };
 
     return (

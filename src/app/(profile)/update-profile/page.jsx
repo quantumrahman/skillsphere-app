@@ -9,7 +9,7 @@ const UpdateProfilePage = () => {
                     <h3 className='text-base font-semibold text-[#ffffff] sm:text-lg md:text-xl'>
                         Update Profile
                     </h3>
-                    <p className='text-sm text-[#A3A3A3] mt-3'>
+                    <p className='text-sm text-[#A3A3A3] mt-3 max-w-[300px] mx-auto'>
                         Update your profile name and photo anytime to keep your
                         account information current and personalized.
                     </p>

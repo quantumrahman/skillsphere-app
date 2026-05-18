@@ -5,6 +5,7 @@ import { registerSchema } from '@/schema/authSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+import { authClient } from '@/lib/auth-client';
 
 const RegisterForm = () => {
     const {
@@ -21,8 +22,15 @@ const RegisterForm = () => {
         setTogglePassword((prev) => !prev);
     };
 
-    const handleOnSubmit = (data) => {
-        console.log(data);
+    const handleOnSubmit = async (data) => {
+        const { data: session, error } = await authClient.signUp.email({
+            name: data?.name,
+            email: data?.email,
+            password: data?.password,
+            image: data?.photo,
+        });
+
+        console.log({session, error});
     };
 
     return (

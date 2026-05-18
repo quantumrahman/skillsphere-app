@@ -7,6 +7,9 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { authClient } from '@/lib/auth-client';
 
+import toast from 'react-hot-toast';
+import ToastMessage from '../ToastMessage/ToastMessage';
+
 const LoginForm = () => {
     const {
         register,
@@ -28,7 +31,20 @@ const LoginForm = () => {
             password: data?.password,
         });
 
-        console.log({ session, error });
+        if (session) {
+            toast.custom(
+                <ToastMessage message={'Login successful.'} type='success' />,
+            );
+        }
+
+        if (error) {
+            toast.custom(
+                <ToastMessage
+                    message={'Invalid email or password.'}
+                    type='error'
+                />,
+            );
+        }
     };
 
     return (

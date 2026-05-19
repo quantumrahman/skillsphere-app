@@ -31,8 +31,8 @@ const Footer = () => {
                                 <Image
                                     src={'/images/logo.png'}
                                     alt='logo'
-                                    width={230}
-                                    height={230}
+                                    width={250}
+                                    height={250}
                                     priority={true}
                                     className='object-contain'
                                 />

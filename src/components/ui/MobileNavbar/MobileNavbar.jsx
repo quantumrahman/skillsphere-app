@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { authClient } from '@/lib/auth-client';
+import { useAuth } from '@/hooks/useAuth';
 
 import Button from '../Button/Button';
 import Link from 'next/link';
@@ -15,6 +16,8 @@ import ToastMessage from '../ToastMessage/ToastMessage';
 const MobileNavbar = () => {
     const pathname = usePathname();
     const router = useRouter();
+
+    const { user, loading } = useAuth();
 
     const [toggleMenu, setToggleMenu] = useState(false);
 
@@ -85,29 +88,33 @@ const MobileNavbar = () => {
                             />
                         </button>
                     </div>
-                    <div className='w-full flex items-center justify-between my-10'>
-                        <div className='w-fit flex items-center justify-center gap-2'>
-                            <Avatar
-                                size='lg'
-                                variant='secondary'
-                                text='Rakibul Rahman'
-                            />
-                            <span className='text-xs text-[#ffffff]'>
-                                <span className='text-[#A3A3A3]'>Welcome!</span>{' '}
-                                <br />
-                                Rakibul Rahman
-                            </span>
+                    {user && (
+                        <div className='w-full flex items-center justify-between my-10'>
+                            <div className='w-fit flex items-center justify-center gap-2'>
+                                <Avatar
+                                    size='lg'
+                                    variant='secondary'
+                                    text='Rakibul Rahman'
+                                />
+                                <span className='text-xs text-[#ffffff]'>
+                                    <span className='text-[#A3A3A3]'>
+                                        Welcome!
+                                    </span>{' '}
+                                    <br />
+                                    Rakibul Rahman
+                                </span>
+                            </div>
+                            <button
+                                type='button'
+                                aria-label='button'
+                                role='button'
+                                onClick={handleLogout}
+                                className='w-fit flex items-center justify-center text-[#A3A3A3] cursor-pointer hover:text-[#ff851b]'
+                            >
+                                <ArrowOutRightStrokeCircleHalf size='sm' />
+                            </button>
                         </div>
-                        <button
-                            type='button'
-                            aria-label='button'
-                            role='button'
-                            onClick={handleLogout}
-                            className='w-fit flex items-center justify-center text-[#A3A3A3] cursor-pointer hover:text-[#ff851b]'
-                        >
-                            <ArrowOutRightStrokeCircleHalf size='sm' />
-                        </button>
-                    </div>
+                    )}
                     <div className='w-full lg:hidden'>
                         <nav className='space-y-4'>
                             <Link
@@ -133,7 +140,7 @@ const MobileNavbar = () => {
                             </Link>
                         </nav>
                     </div>
-                    <div className='w-full space-y-5 mt-10'>
+                    <div className={`w-full space-y-5 mt-10 ${user && 'hidden'}`}>
                         <Button
                             variant='secondary'
                             size='sm'

@@ -33,8 +33,8 @@ const Avatar = ({
     if (!src || error) {
         return (
             <div className={`${baseStyle} ${sizes[size]} ${variants[variant]}`}>
-                {icon && <User size='xs' color='#ffffff' />}
-                {text && initials}
+                {(icon || placeholder) && <User size='xs' color='#ffffff' />}
+                {text && <p className='text-base font-medium text-[#ffffff] cursor-default'>{initials}</p>}
             </div>
         );
     }

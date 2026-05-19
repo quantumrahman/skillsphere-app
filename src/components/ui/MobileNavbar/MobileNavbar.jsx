@@ -1,13 +1,16 @@
 'use client';
 
-import { Menu, X } from '@boxicons/react';
+import { ArrowOutRightStrokeCircleHalf, Menu, X } from '@boxicons/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { authClient } from '@/lib/auth-client';
 
 import Button from '../Button/Button';
 import Link from 'next/link';
 import Avatar from '../Avatar/Avatar';
+import toast from 'react-hot-toast';
+import ToastMessage from '../ToastMessage/ToastMessage';
 
 const MobileNavbar = () => {
     const pathname = usePathname();
@@ -27,6 +30,25 @@ const MobileNavbar = () => {
         setToggleMenu((prev) => !prev);
     };
 
+    const handleLogout = async () => {
+        const { data: success, error } = await authClient.signOut();
+
+        if (success) {
+            toast.custom(
+                <ToastMessage message='Log out successfully.' type='success' />,
+            );
+        }
+
+        if (error) {
+            toast.custom(
+                <ToastMessage
+                    message='Something went wrong. Try again.'
+                    type='error'
+                />,
+            );
+        }
+    };
+
     return (
         <div className='w-fit lg:w-full flex items-center justify-end'>
             <button
@@ -43,7 +65,7 @@ const MobileNavbar = () => {
                 />
             </button>
             <div
-                className={`w-full min-h-screen fixed top-0 right-0 transform bg-[#000000]/30 z-40 ${toggleMenu ? 'translate-x-0' : 'translate-x-full'}`}
+                className={`w-full min-h-screen fixed top-0 right-0 transform bg-[#000000]/50 z-40 transition-transform duration-500 delay-500 ease-in-out ${toggleMenu ? 'translate-x-0' : 'translate-x-full'}`}
             >
                 <div
                     className={`w-full max-w-[350px] min-h-screen absolute top-0 right-0 transform bg-[#1e1e1e]/40 backdrop-blur-lg px-5 transition-transform duration-700 ease-in-out ${toggleMenu ? 'translate-x-0' : 'translate-x-full'}`}
@@ -63,10 +85,28 @@ const MobileNavbar = () => {
                             />
                         </button>
                     </div>
-                    <div className='w-full flex items-center justify-between mt-10'>
+                    <div className='w-full flex items-center justify-between my-10'>
                         <div className='w-fit flex items-center justify-center gap-2'>
-                            <Avatar />
+                            <Avatar
+                                size='lg'
+                                variant='secondary'
+                                text='Rakibul Rahman'
+                            />
+                            <span className='text-xs text-[#ffffff]'>
+                                <span className='text-[#A3A3A3]'>Welcome!</span>{' '}
+                                <br />
+                                Rakibul Rahman
+                            </span>
                         </div>
+                        <button
+                            type='button'
+                            aria-label='button'
+                            role='button'
+                            onClick={handleLogout}
+                            className='w-fit flex items-center justify-center text-[#A3A3A3] cursor-pointer hover:text-[#ff851b]'
+                        >
+                            <ArrowOutRightStrokeCircleHalf size='sm' />
+                        </button>
                     </div>
                     <div className='w-full lg:hidden'>
                         <nav className='space-y-4'>

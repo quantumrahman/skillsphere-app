@@ -1,6 +1,7 @@
 import { Bricolage_Grotesque } from 'next/font/google';
 
 import Header from '@/components/shared/Header/Header';
+import { Toaster } from 'react-hot-toast';
 
 const bricolageGrotesque = Bricolage_Grotesque({
     variable: '--font-bricolage-sans',
@@ -19,6 +20,7 @@ const MainLayout = ({ children }) => {
         >
             <Header />
             {children}
+            <Toaster position='bottom-left'/>
         </div>
     );
 };

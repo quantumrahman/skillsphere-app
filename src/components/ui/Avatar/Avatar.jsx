@@ -34,19 +34,26 @@ const Avatar = ({
         return (
             <div className={`${baseStyle} ${sizes[size]} ${variants[variant]}`}>
                 {(icon || placeholder) && <User size='xs' color='#ffffff' />}
-                {text && <p className='text-base font-medium text-[#ffffff] cursor-default'>{initials}</p>}
+                {text && (
+                    <p className='text-base font-medium text-[#ffffff] cursor-default'>
+                        {initials}
+                    </p>
+                )}
             </div>
         );
     }
 
     return (
-        <Image
-            src={src}
-            alt={name}
-            onError={() => setError(true)}
-            priority={true}
-            className={`${sizes[size]} ${variants[variant]} rounded-full object-cover`}
-        />
+        <div className={`${variants[variant]} ${sizes[size]} rounded-full relative`}>
+            <Image
+                src={src}
+                alt={name}
+                fill
+                onError={() => setError(true)}
+                priority
+                className={`rounded-full object-cover`}
+            />
+        </div>
     );
 };
 

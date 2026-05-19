@@ -92,16 +92,17 @@ const MobileNavbar = () => {
                         <div className='w-full flex items-center justify-between my-10'>
                             <div className='w-fit flex items-center justify-center gap-2'>
                                 <Avatar
+                                    src={user?.image}
                                     size='lg'
                                     variant='secondary'
-                                    text='Rakibul Rahman'
+                                    text={user?.name}
                                 />
                                 <span className='text-xs text-[#ffffff]'>
                                     <span className='text-[#A3A3A3]'>
                                         Welcome!
                                     </span>{' '}
                                     <br />
-                                    Rakibul Rahman
+                                    {user?.name}
                                 </span>
                             </div>
                             <button

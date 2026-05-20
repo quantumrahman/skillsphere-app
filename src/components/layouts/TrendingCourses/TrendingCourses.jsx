@@ -2,7 +2,7 @@ import TrendingCoursesList from '@/components/ui/TrendingCoursesList/TrendingCou
 
 const TrendingCourses = () => {
     return (
-        <div className='py-[56px] bg-[#1e1e1e]/30 px-5 lg:py-[112px]'>
+        <section className='py-[56px] bg-[#1e1e1e]/30 px-5 lg:py-[112px]'>
             <div className='w-full text-center space-y-3 mb-[48px]'>
                 <h2 className='max-w-2xl mx-auto text-3xl font-bold text-[#E5E5E5] md:text-[44px]'>
                     New & Noteworthy
@@ -14,7 +14,7 @@ const TrendingCourses = () => {
                 </p>
             </div>
             <TrendingCoursesList />
-        </div>
+        </section>
     );
 };
 

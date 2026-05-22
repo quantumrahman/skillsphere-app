@@ -1,26 +1,56 @@
 'use client';
 
 import { Star } from '@boxicons/react';
-import Button from '../Button/Button';
+import { useRouter } from 'next/navigation';
 
-const CourseCard = () => {
+import slugify from 'slugify';
+import Button from '../Button/Button';
+import Image from 'next/image';
+import Badge from '../Badge/Badge';
+
+const CourseCard = ({ course }) => {
+    const router = useRouter();
+
     const handleViewDetails = () => {
-        console.log('view course details');
+        const slugifyUrlText = slugify(course?.title, {
+            replacement: '-',
+            remove: undefined,
+            lower: true,
+            strict: false,
+            trim: true,
+        });
+
+        router.push(`/courses/course-details/${slugifyUrlText}`);
     };
 
     return (
         <div className='w-full p-4 rounded-xl bg-[#1e1e1e]/30 border border-[#1e1e1e] flex flex-col gap-4'>
-            <div className='w-full h-[250px] bg-[#000000] rounded-xl'></div>
+            <div className='w-full h-[250px] bg-[#000000] rounded-xl relative'>
+                <Image
+                    src={course?.image}
+                    alt={course?.title}
+                    fill={true}
+                    priority={true}
+                    className='object-cover rounded-xl'
+                />
+            </div>
+            <div className='w-full flex flex-wrap items-center gap-3'>
+                <Badge>{course?.category}</Badge>
+            </div>
             <div className='space-y-2'>
-                <h3 className='text-xl font-bold text-[#ffffff] lg:text-2xl'>
-                    React.js Architecture & Design Patterns
-                </h3>
+                <div className='w-full min-h-[65px]'>
+                    <h3 className='text-xl font-bold text-[#ffffff] lg:text-2xl'>
+                        {course?.title}
+                    </h3>
+                </div>
                 <div className='flex items-center justify-between'>
-                    <p className='text-base text-[#A3A3A3]'>Rakibul Rahman</p>
+                    <p className='text-base text-[#A3A3A3]'>
+                        {course?.instructor}
+                    </p>
                     <div className='flex items-center justify-center gap-2'>
-                        <Star pack='filled' size='xs' color='#ffffff' />
-                        <span className='text-base text-[#ffffff] mt-0.5'>
-                            4.9
+                        <Star pack='filled' size='xs' color='#ff851b' />
+                        <span className='text-base text-[#ff851b] mt-0.5'>
+                            {course?.rating}
                         </span>
                     </div>
                 </div>

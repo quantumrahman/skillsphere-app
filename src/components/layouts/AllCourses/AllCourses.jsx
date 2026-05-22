@@ -2,10 +2,30 @@
 
 import AllCourseList from '@/components/ui/AllCourseList/AllCourseList';
 import { Search, X } from '@boxicons/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const AllCourse = () => {
     const [search, setSearch] = useState('');
+    const [loading, setLoading] = useState(true);
+    const [courses, setCourses] = useState([]);
+
+    useEffect(() => {
+        const fetchCourses = async () => {
+            setLoading(true);
+            const response = await fetch('/api/courses');
+
+            const { courses } = await response.json();
+
+            setCourses(courses.slice(0, 6));
+            setLoading(false);
+        };
+
+        fetchCourses();
+    }, []);
+
+    const searchFilterCourse = courses.filter((course) =>
+        course.title.toLowerCase().trim().includes(search.toLowerCase().trim()),
+    );
 
     const handleResetInput = () => {
         setSearch('');
@@ -38,19 +58,21 @@ const AllCourse = () => {
                             value={search}
                             className='p-4 outline-none w-full text-sm text-[#ffffff] placeholder:text-[#ffffff]/30'
                         />
-                        <button
-                            type='button'
-                            aria-label='button'
-                            role='button'
-                            onClick={handleResetInput}
-                            className={`pr-4 cursor-pointer ${search ? 'block' : 'hidden'}`}
-                        >
-                            <X className='text-[#ffffff]/30' size='sm' />
-                        </button>
+                        {search && (
+                            <button
+                                type='button'
+                                aria-label='button'
+                                role='button'
+                                onClick={handleResetInput}
+                                className={`pr-4 cursor-pointer`}
+                            >
+                                <X className='text-[#ffffff]/30' size='sm' />
+                            </button>
+                        )}
                     </div>
                 </div>
             </div>
-            <AllCourseList />
+            <AllCourseList isLoading={loading} courses={searchFilterCourse} />
         </section>
     );
 };

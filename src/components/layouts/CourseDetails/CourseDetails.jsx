@@ -21,7 +21,7 @@ const CourseDetails = async ({ slug }) => {
     );
 
     return (
-        <section className='py-[56px] bg-[#1e1e1e]/30 px-5 lg:py-[112px]'>
+        <section className='py-[56px] bg-[#1e1e1e]/30 px-5 md:px-10 lg:py-[112px]'>
             <div className='w-full'>
                 <div className='w-full text-center space-y-4 mb-[48px]'>
                     <h2 className='max-w-2xl mx-auto text-3xl font-bold text-[#E5E5E5] md:text-[44px]'>

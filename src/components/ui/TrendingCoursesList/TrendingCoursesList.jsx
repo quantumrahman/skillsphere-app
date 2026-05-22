@@ -7,7 +7,7 @@ const TrendingCoursesList = async () => {
     );
 
     return (
-        <div className='w-full max-w-[1600px] mx-auto grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
+        <div className='w-full max-w-[1600px] mx-auto grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3'>
             {courses.slice(6, 9).map((course, idx) => (
                 <TrendingCard key={idx} course={course} />
             ))}

@@ -11,7 +11,7 @@ const AllCourseList = ({ isLoading, courses }) => {
     }
 
     return (
-        <div className='w-full max-w-[1400px] min-h-[300px] mx-auto grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
+        <div className='w-full max-w-[1400px] min-h-[300px] mx-auto grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3'>
             {courses.length > 0 ? (
                 courses.map((course) => (
                     <CourseCard key={course.id} course={course} />

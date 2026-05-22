@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const HeroBanner = () => {
     return (
-        <section className='w-full bg-linear-to-t from-[#1e1e1e]/30 to-[#000000] py-16 px-5'>
+        <section className='w-full bg-linear-to-t from-[#1e1e1e]/30 to-[#000000] py-16 px-5 md:px-10'>
             <div className='w-full max-w-[1600px] mx-auto mb-16'>
                 <div className='w-fit p-2 border border-[#1e1e1e] flex items-center justify-center rounded-full gap-2 mx-auto mb-[24px]'>
                     <Sparkles color='#ff851b' size='xs' />

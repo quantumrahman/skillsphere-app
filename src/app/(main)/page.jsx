@@ -10,10 +10,8 @@ const HomePage = () => {
         <div className='w-full'>
             <HeroBanner />
             <PopularCourses />
-            <div className='w-full h-px bg-[#1e1e1e]'></div>
             <LearningTips />
             <TopInstructors />
-            <div className='w-full h-px bg-[#1e1e1e]'></div>
             <TrendingCourses />
             <CallToAction />
         </div>

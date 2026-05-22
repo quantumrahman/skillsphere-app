@@ -11,7 +11,7 @@ const InstructorCard = ({ src = '', name = '', experts = '', alt = '' }) => {
                 alt={alt}
                 fill={true}
                 priority={true}
-                className='w-full h-auto object-cover transition-all duration-300 ease-in-out grayscale group-hover:scale-110 group-hover:grayscale-0'
+                className='w-full h-auto object-cover transition-all duration-300 ease-in-out group-hover:scale-110'
             />
             <div className='absolute inset-0 bg-linear-to-t from-[#000000]/50 to-transparent p-6 transition-colors duration-300 ease-in-out group-hover:from-[#000000]/70'>
                 <div className='space-y-3 absolute bottom-6'>

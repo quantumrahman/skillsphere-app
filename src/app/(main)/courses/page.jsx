@@ -5,7 +5,6 @@ const CoursesPage = () => {
     return (
         <div className='w-full'>
             <AllCourse />
-            <div className='w-full h-px bg-[#1e1e1e]'></div>
             <CallToAction />
         </div>
     );

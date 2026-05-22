@@ -1,0 +1,68 @@
+[
+    {
+        "id": 1,
+        "title": "React.js Architecture Design Patterns",
+        "instructor": "Michael Carter",
+        "duration": "24 hours",
+        "rating": 4.9,
+        "level": "Intermediate",
+        "description": "Learn how to build scalable and maintainable React.js applications using modern architecture patterns. This course covers component design, state management, reusable structures, and clean coding practices. You will also work on real-world projects to understand enterprise-level frontend development workflows.",
+        "image": "https://i.postimg.cc/example-react-architecture.png",
+        "category": "Development"
+    },
+    {
+        "id": 2,
+        "title": "Backend Engineering with Go",
+        "instructor": "Daniel Brooks",
+        "duration": "28 hours",
+        "rating": 4.8,
+        "level": "Intermediate",
+        "description": "Master backend engineering concepts using the Go programming language. You will learn API development, concurrency, database integration, and scalable backend architecture. The course also includes practical projects focused on performance and clean backend design.",
+        "image": "https://i.postimg.cc/example-go-backend.png",
+        "category": "Backend"
+    },
+    {
+        "id": 3,
+        "title": "Backend Engineering with Node.js",
+        "instructor": "Kevin Walker",
+        "duration": "26 hours",
+        "rating": 4.7,
+        "level": "Intermediate",
+        "description": "Build modern backend applications with Node.js and industry-standard tools. This course teaches REST APIs, authentication, database operations, and scalable server-side architecture. You will create production-ready backend services through hands-on development exercises.",
+        "image": "https://i.postimg.cc/example-node-backend.png",
+        "category": "Backend"
+    },
+    {
+        "id": 4,
+        "title": "Python for DevOps & Automation",
+        "instructor": "Sophia Bennett",
+        "duration": "22 hours",
+        "rating": 4.9,
+        "level": "Beginner",
+        "description": "Automate repetitive tasks and improve workflows using Python for DevOps practices. This course covers scripting, server automation, cloud operations, and task scheduling. You will gain practical experience by building automation tools used in real-world environments.",
+        "image": "https://i.postimg.cc/example-python-devops.png",
+        "category": "DevOps"
+    },
+    {
+        "id": 5,
+        "title": "Rust Systems Programming",
+        "instructor": "Ethan Miller",
+        "duration": "30 hours",
+        "rating": 4.9,
+        "level": "Advanced",
+        "description": "Explore systems programming concepts using the Rust programming language. The course focuses on memory safety, concurrency, performance optimization, and low-level programming techniques. You will build efficient and secure applications while understanding Rust's ownership model deeply.",
+        "image": "https://i.postimg.cc/example-rust-systems.png",
+        "category": "Programming"
+    },
+    {
+        "id": 6,
+        "title": "MongoDB Performance Tuning",
+        "instructor": "Olivia Turner",
+        "duration": "18 hours",
+        "rating": 4.7,
+        "level": "Advanced",
+        "description": "Learn advanced techniques to optimize MongoDB databases for high-performance applications. This course explains indexing, query optimization, replication, and database monitoring strategies. You will work with real datasets to improve database efficiency and scalability.",
+        "image": "https://i.postimg.cc/example-mongodb-performance.png",
+        "category": "Database"
+    }
+]

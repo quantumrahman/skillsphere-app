@@ -1,0 +1,35 @@
+[
+    {
+        "id": 7,
+        "title": "JavaScript Beginner to Advanced",
+        "instructor": "Ryan Mitchell",
+        "duration": "32 hours",
+        "rating": 4.8,
+        "level": "Beginner",
+        "description": "Start your JavaScript journey from the basics and progress to advanced concepts. The course includes variables, functions, DOM manipulation, asynchronous programming, and modern ES6+ features. By the end, you will be confident building interactive web applications with JavaScript.",
+        "image": "https://i.postimg.cc/example-javascript-advanced.png",
+        "category": "Development"
+    },
+    {
+        "id": 8,
+        "title": "REST API with Express.js",
+        "instructor": "James Anderson",
+        "duration": "16 hours",
+        "rating": 4.6,
+        "level": "Intermediate",
+        "description": "Build secure and scalable REST APIs using Express.js and Node.js. This course teaches routing, middleware, authentication, error handling, and database connectivity. You will create fully functional APIs suitable for modern web and mobile applications.",
+        "image": "https://i.postimg.cc/example-rest-api-express.png",
+        "category": "Backend"
+    },
+    {
+        "id": 9,
+        "title": "JavaScript Data Structures & Algorithms",
+        "instructor": "Emma Richardson",
+        "duration": "27 hours",
+        "rating": 4.9,
+        "level": "Intermediate",
+        "description": "Strengthen your problem-solving skills with JavaScript data structures and algorithms. The course covers arrays, linked lists, trees, graphs, sorting, searching, and recursion in detail. You will also solve coding interview challenges and optimize algorithm performance effectively.",
+        "image": "https://i.postimg.cc/example-js-dsa.png",
+        "category": "Programming"
+    }
+]

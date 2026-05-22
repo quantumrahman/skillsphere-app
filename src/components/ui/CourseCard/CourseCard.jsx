@@ -33,9 +33,9 @@ const CourseCard = ({ course }) => {
                     priority={true}
                     className='object-cover rounded-xl'
                 />
-            </div>
-            <div className='w-full flex flex-wrap items-center gap-3'>
-                <Badge>{course?.category}</Badge>
+                <div className='absolute inset-0 bg-[#000000]/10 flex items-end justify-end p-4'>
+                    <Badge variant='outline'>{course?.category}</Badge>
+                </div>
             </div>
             <div className='space-y-2'>
                 <div className='w-full min-h-[65px]'>
@@ -49,7 +49,7 @@ const CourseCard = ({ course }) => {
                     </p>
                     <div className='flex items-center justify-center gap-2'>
                         <Star pack='filled' size='xs' color='#ff851b' />
-                        <span className='text-base text-[#ff851b] mt-0.5'>
+                        <span className='text-base text-[#ffffff] mt-0.5'>
                             {course?.rating}
                         </span>
                     </div>

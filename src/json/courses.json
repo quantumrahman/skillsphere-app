@@ -6,6 +6,7 @@
         "duration": "24 hours",
         "rating": 4.9,
         "level": "Intermediate",
+        "date": "2026-05-20",
         "description": "Learn how to build scalable and maintainable React.js applications using modern architecture patterns. This course covers component design, state management, reusable structures, and clean coding practices. You will also work on real-world projects to understand enterprise-level frontend development workflows.",
         "image": "https://skillsphere-rrdev.vercel.app/images/courses/react-js-architecture-and-design-patterns.webp",
         "category": "Development"
@@ -17,6 +18,7 @@
         "duration": "28 hours",
         "rating": 4.8,
         "level": "Intermediate",
+        "date": "2026-05-18",
         "description": "Master backend engineering concepts using the Go programming language. You will learn API development, concurrency, database integration, and scalable backend architecture. The course also includes practical projects focused on performance and clean backend design.",
         "image": "https://skillsphere-rrdev.vercel.app/images/courses/backend-engineering-with-go.webp",
         "category": "Backend"
@@ -28,6 +30,7 @@
         "duration": "26 hours",
         "rating": 4.7,
         "level": "Intermediate",
+        "date": "2026-05-15",
         "description": "Build modern backend applications with Node.js and industry-standard tools. This course teaches REST APIs, authentication, database operations, and scalable server-side architecture. You will create production-ready backend services through hands-on development exercises.",
         "image": "https://skillsphere-rrdev.vercel.app/images/courses/backend-engineering-with-node-js.webp",
         "category": "Backend"
@@ -39,6 +42,7 @@
         "duration": "22 hours",
         "rating": 4.9,
         "level": "Beginner",
+        "date": "2026-05-12",
         "description": "Automate repetitive tasks and improve workflows using Python for DevOps practices. This course covers scripting, server automation, cloud operations, and task scheduling. You will gain practical experience by building automation tools used in real-world environments.",
         "image": "https://skillsphere-rrdev.vercel.app/images/courses/python-devops-and-automotion.webp",
         "category": "DevOps"
@@ -50,6 +54,7 @@
         "duration": "30 hours",
         "rating": 4.9,
         "level": "Advanced",
+        "date": "2026-05-10",
         "description": "Explore systems programming concepts using the Rust programming language. The course focuses on memory safety, concurrency, performance optimization, and low-level programming techniques. You will build efficient and secure applications while understanding Rust's ownership model deeply.",
         "image": "https://skillsphere-rrdev.vercel.app/images/courses/rust-systems-programming.webp",
         "category": "Programming"
@@ -61,8 +66,45 @@
         "duration": "18 hours",
         "rating": 4.7,
         "level": "Advanced",
+        "date": "2026-05-08",
         "description": "Learn advanced techniques to optimize MongoDB databases for high-performance applications. This course explains indexing, query optimization, replication, and database monitoring strategies. You will work with real datasets to improve database efficiency and scalability.",
         "image": "https://skillsphere-rrdev.vercel.app/images/courses/mongodb-performance-tuning.webp",
         "category": "Database"
+    },
+    {
+        "id": 7,
+        "title": "JavaScript Beginner to Advanced",
+        "instructor": "Ismail Rahman",
+        "duration": "32 hours",
+        "rating": 4.8,
+        "level": "Beginner",
+        "date": "2026-05-05",
+        "description": "Start your JavaScript journey from the basics and progress to advanced concepts. The course includes variables, functions, DOM manipulation, asynchronous programming, and modern ES6+ features. By the end, you will be confident building interactive web applications with JavaScript.",
+        "image": "https://skillsphere-rrdev.vercel.app/images/courses/javascript-beginner-to-advanced-with-system-design.webp",
+        "category": "Development"
+    },
+    {
+        "id": 8,
+        "title": "REST API with Express.js",
+        "instructor": "Abu Bakr",
+        "duration": "16 hours",
+        "rating": 4.6,
+        "level": "Intermediate",
+        "date": "2026-05-03",
+        "description": "Build secure and scalable REST APIs using Express.js and Node.js. This course teaches routing, middleware, authentication, error handling, and database connectivity. You will create fully functional APIs suitable for modern web and mobile applications.",
+        "image": "https://skillsphere-rrdev.vercel.app/images/courses/rest-api-with-express-js.webp",
+        "category": "Backend"
+    },
+    {
+        "id": 9,
+        "title": "JavaScript Data Structures & Algorithms",
+        "instructor": "Haniya Bint Hussain",
+        "duration": "27 hours",
+        "rating": 4.9,
+        "level": "Intermediate",
+        "date": "2026-05-01",
+        "description": "Strengthen your problem-solving skills with JavaScript data structures and algorithms. The course covers arrays, linked lists, trees, graphs, sorting, searching, and recursion in detail. You will also solve coding interview challenges and optimize algorithm performance effectively.",
+        "image": "https://skillsphere-rrdev.vercel.app/images/courses/javascript-data-structure-algorithms.webp",
+        "category": "Programming"
     }
 ]

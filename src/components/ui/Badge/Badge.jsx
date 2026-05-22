@@ -1,6 +1,6 @@
 const Badge = ({ children, variant = 'primary', className }) => {
     const baseStyle =
-        'inline-block py-1.5 px-3 rounded-full text-sm text-[#ff851b]';
+        'inline-block py-1.5 px-3 rounded-full text-sm text-[#ff851b] backdrop-blur-sm';
 
     const variants = {
         primary: 'bg-[#ff851b]/10',

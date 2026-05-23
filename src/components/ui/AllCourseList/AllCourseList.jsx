@@ -5,7 +5,7 @@ const AllCourseList = ({ isLoading, courses }) => {
     if (isLoading) {
         return (
             <div className='w-full max-w-[1400px] min-h-[300px] mx-auto flex items-center justify-center'>
-                <BeatLoader size={10} color='#ffffff' />
+                <BeatLoader size={10} color='#ff851b' />
             </div>
         );
     }

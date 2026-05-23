@@ -2,6 +2,7 @@
 
 import { Star } from '@boxicons/react';
 import { useRouter } from 'next/navigation';
+import { motion } from 'motion/react';
 
 import slugify from 'slugify';
 import Button from '../Button/Button';
@@ -24,7 +25,16 @@ const CourseCard = ({ course }) => {
     };
 
     return (
-        <div className='w-full p-4 rounded-xl bg-[#1e1e1e]/30 border border-[#1e1e1e] flex flex-col gap-4'>
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+                duration: 0.8,
+                ease: 'easeIn',
+            }}
+            viewport={{ once: true }}
+            className='w-full p-4 rounded-xl bg-[#1e1e1e]/30 border border-[#1e1e1e] flex flex-col gap-4'
+        >
             <div className='w-full h-[250px] bg-[#000000] rounded-xl relative'>
                 <Image
                     src={course?.image}
@@ -63,7 +73,7 @@ const CourseCard = ({ course }) => {
                     View Details
                 </Button>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

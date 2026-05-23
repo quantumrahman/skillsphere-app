@@ -1,11 +1,23 @@
+'use client';
+
 import { Instagram, Linkedin, Twitter } from '@boxicons/react';
+import { motion } from 'motion/react';
 
 import Image from 'next/image';
 import Link from 'next/link';
 
 const InstructorCard = ({ src = '', name = '', experts = '', alt = '' }) => {
     return (
-        <div className='w-full h-[350px] bg-[#1e1e1e] rounded-xl relative overflow-hidden group'>
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+                duration: 0.8,
+                ease: 'easeIn',
+            }}
+            viewport={{ once: true }}
+            className='w-full h-[350px] bg-[#1e1e1e] rounded-xl relative overflow-hidden group'
+        >
             <Image
                 src={src}
                 alt={alt}
@@ -43,7 +55,7 @@ const InstructorCard = ({ src = '', name = '', experts = '', alt = '' }) => {
                     </Link>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

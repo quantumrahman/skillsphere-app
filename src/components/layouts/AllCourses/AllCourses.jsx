@@ -1,8 +1,11 @@
 'use client';
 
-import AllCourseList from '@/components/ui/AllCourseList/AllCourseList';
 import { Search, X } from '@boxicons/react';
 import { useEffect, useState } from 'react';
+import { motion } from 'motion/react';
+
+import AllCourseList from '@/components/ui/AllCourseList/AllCourseList';
+import SectionHeading from '@/components/ui/SectionHeading/SectionHeading';
 
 const AllCourse = () => {
     const [search, setSearch] = useState('');
@@ -34,17 +37,22 @@ const AllCourse = () => {
     return (
         <section className='py-[56px] bg-[#1e1e1e]/30 px-5 md:px-10 lg:py-[112px]'>
             <div className='w-full max-w-[1400px] mx-auto mb-12'>
-                <div className='w-full text-center space-y-3 mb-12'>
-                    <h2 className='max-w-2xl mx-auto text-3xl font-bold text-[#E5E5E5] md:text-[44px]'>
-                        Explore Our Courses
-                    </h2>
-                    <p className='max-w-2xl mx-auto text-base text-[#A3A3A3]'>
-                        Discover practical, expertly crafted courses to build
+                <SectionHeading
+                    heading={'Explore Our Courses'}
+                    paragraph={`Discover practical, expertly crafted courses to build
                         real-world skills, boost your confidence, and grow your
-                        tech career at your own pace.
-                    </p>
-                </div>
-                <div className='w-full flex items-center justify-between'>
+                        tech career at your own pace.`}
+                />
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{
+                        duration: 0.5,
+                        ease: 'easeIn',
+                    }}
+                    viewport={{ once: true }}
+                    className='w-full flex items-center justify-between'
+                >
                     <div className='w-full h-[54px] flex items-center justify-center bg-[#1e1e1e]/30 border border-[#1e1e1e] rounded-full overflow-hidden'>
                         <div className='pl-4 h-full flex items-center justify-center'>
                             <Search className='text-[#ffffff]/30' size='sm' />
@@ -70,7 +78,7 @@ const AllCourse = () => {
                             </button>
                         )}
                     </div>
-                </div>
+                </motion.div>
             </div>
             <AllCourseList isLoading={loading} courses={searchFilterCourse} />
         </section>

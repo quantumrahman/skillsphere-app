@@ -1,12 +1,24 @@
+'use client';
+
 import { Calendar } from '@boxicons/react';
 import { format } from 'date-fns';
+import { motion } from 'motion/react';
 
 import Image from 'next/image';
 import Badge from '../Badge/Badge';
 
 const TrendingCard = ({ course }) => {
     return (
-        <div className='w-full p-4 bg-[#1e1e1e]/30 border border-[#1e1e1e] rounded-xl space-y-5'>
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+                duration: 0.8,
+                ease: 'easeIn',
+            }}
+            viewport={{ once: true }}
+            className='w-full p-4 bg-[#1e1e1e]/30 border border-[#1e1e1e] rounded-xl space-y-5'
+        >
             <div className='w-full h-[260px] bg-[#000000] rounded-xl relative'>
                 <Image
                     src={course?.image}
@@ -41,7 +53,7 @@ const TrendingCard = ({ course }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

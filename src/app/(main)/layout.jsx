@@ -1,4 +1,6 @@
 import { Bricolage_Grotesque } from 'next/font/google';
+import { Toaster } from 'react-hot-toast';
+import '../globals.css';
 
 import Header from '@/components/shared/Header/Header';
 import Footer from '@/components/shared/Footer/Footer';
@@ -21,6 +23,7 @@ const MainLayout = ({ children }) => {
             <Header />
             {children}
             <Footer />
+            <Toaster position='bottom-left' />
         </div>
     );
 };

@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import { AlertCircle } from '@boxicons/react';
 import { authClient } from '@/lib/auth-client';
 import { redirect } from 'next/navigation';
+import { motion } from 'motion/react';
 
 import toast from 'react-hot-toast';
 import ToastMessage from '../ToastMessage/ToastMessage';
@@ -48,7 +49,15 @@ const UpdateForm = () => {
     return (
         <form onSubmit={handleSubmit(handleOnSubmit)}>
             <div className='space-y-1.5'>
-                <div className='w-full space-y-1.5'>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                        duration: 0.5,
+                        ease: 'easeIn',
+                    }}
+                    className='w-full space-y-1.5'
+                >
                     <input
                         type='text'
                         aria-label='input'
@@ -69,8 +78,16 @@ const UpdateForm = () => {
                             </span>
                         )}
                     </div>
-                </div>
-                <div className='w-full space-y-1.5'>
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                        duration: 0.6,
+                        ease: 'easeIn',
+                    }}
+                    className='w-full space-y-1.5'
+                >
                     <input
                         type='text'
                         aria-label='input'
@@ -91,15 +108,25 @@ const UpdateForm = () => {
                             </span>
                         )}
                     </div>
-                </div>
-                <button
-                    type='submit'
-                    aria-label='button'
-                    role='button'
-                    className='w-full py-3 px-4 bg-[#ff851b] border border-[#ff851b] rounded-full text-sm font-semibold text-[#000000] cursor-pointer transition-all duration-200 ease-in-out hover:bg-[#ff8b26]'
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                        duration: 0.7,
+                        ease: 'easeIn',
+                    }}
+                    className='w-full'
                 >
-                    Save Changes
-                </button>
+                    <button
+                        type='submit'
+                        aria-label='button'
+                        role='button'
+                        className='w-full py-3 px-4 bg-[#ff851b] border border-[#ff851b] rounded-full text-sm font-semibold text-[#000000] cursor-pointer transition-all duration-200 ease-in-out hover:bg-[#ff8b26]'
+                    >
+                        Save Changes
+                    </button>
+                </motion.div>
             </div>
         </form>
     );

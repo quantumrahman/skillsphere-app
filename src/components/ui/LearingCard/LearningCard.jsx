@@ -1,6 +1,17 @@
+'use client';
+
+import { motion } from 'motion/react';
+
 const LearningCard = ({ title = '', paragraph = '', icon, className = '' }) => {
     return (
-        <div
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+                duration: 0.8,
+                ease: 'easeIn',
+            }}
+            viewport={{ once: true }}
             className={`w-full p-8 md:p-10 bg-[#1e1e1e]/30 rounded-xl relative overflow-hidden ${className}`}
         >
             <div className='space-y-4 relative inset-0 z-10'>
@@ -12,7 +23,7 @@ const LearningCard = ({ title = '', paragraph = '', icon, className = '' }) => {
             <div className='absolute top-1/2 right-0 transform -translate-y-1/2 md:translate-x-1/2'>
                 {icon}
             </div>
-        </div>
+        </motion.div>
     );
 };
 

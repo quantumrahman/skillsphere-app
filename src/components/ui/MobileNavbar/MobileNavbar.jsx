@@ -68,10 +68,10 @@ const MobileNavbar = () => {
                 />
             </button>
             <div
-                className={`w-full min-h-screen fixed top-0 right-0 transform bg-[#000000]/50 z-40 transition-transform duration-500 delay-500 ease-in-out ${toggleMenu ? 'translate-x-0' : 'translate-x-full'}`}
+                className={`w-full min-h-screen fixed top-0 right-0 transform bg-[#000000]/70 z-40 transition-transform duration-500 delay-500 ease-in-out ${toggleMenu ? 'translate-x-0' : 'translate-x-full'}`}
             >
                 <div
-                    className={`w-full max-w-[350px] min-h-screen absolute top-0 right-0 transform bg-[#1e1e1e]/40 backdrop-blur-lg px-5 transition-transform duration-700 ease-in-out ${toggleMenu ? 'translate-x-0' : 'translate-x-full'}`}
+                    className={`w-full max-w-[350px] min-h-screen absolute top-0 right-0 transform bg-[#1e1e1e]/30 backdrop-blur-lg px-5 transition-transform duration-700 ease-in-out ${toggleMenu ? 'translate-x-0' : 'translate-x-full'}`}
                 >
                     <div className='w-full h-[75px] flex items-center'>
                         <button
@@ -144,7 +144,7 @@ const MobileNavbar = () => {
                     <div className={`w-full space-y-5 mt-10 ${user && 'hidden'}`}>
                         <Button
                             variant='secondary'
-                            size='sm'
+                            size='md'
                             className={'w-full'}
                             onClick={() => {
                                 (handleRedirectLogin(), handleToggleMenu());
@@ -154,7 +154,7 @@ const MobileNavbar = () => {
                         </Button>
                         <Button
                             variant='primary'
-                            size='sm'
+                            size='md'
                             className={'w-full'}
                             onClick={() => {
                                 (handleRedirectRegister(), handleToggleMenu());

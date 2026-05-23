@@ -1,53 +1,25 @@
-'use client';
+import NotFoundContent from '@/components/ui/NotFoundContent/NotFoundContent';
 
-import { motion } from 'motion/react';
-import { redirect } from 'next/navigation';
-
-import Button from '@/components/ui/Button/Button';
+export const metadata = {
+    title: '404 | Page Not Found | SkillSphere',
+    description:
+        'Oops! The page you are looking for does not exist or has been moved. Please check the URL or return to our homepage.',
+    authors: [{ name: 'Rakibul Rahman' }],
+    metadataBase: new URL('https://skillsphere-rrdev.vercel.app'),
+    robots: {
+        index: false,
+        follow: false,
+    },
+    openGraph: {
+        title: '404 - Page Not Found | SkillSphere',
+        description: 'The requested page could not be found on SkillSphere.',
+        url: 'https://skillsphere-rrdev.vercel.app',
+        type: 'website',
+    },
+};
 
 const NotFoundPage = () => {
-    const handleBackHome = () => {
-        redirect('/');
-    };
-
-    return (
-        <div className='w-full min-h-screen flex flex-col items-center justify-center text-center space-y-4'>
-            <motion.h2
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.2, ease: 'easeIn' }}
-                className='max-w-2xl mx-auto text-3xl font-bold text-[#E5E5E5] md:text-[44px]'
-            >
-                4<span className='text-[#ff851b]'>0</span>4
-            </motion.h2>
-            <motion.h2
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.2, ease: 'easeIn' }}
-                className='max-w-2xl mx-auto text-3xl font-bold text-[#E5E5E5] md:text-[44px]'
-            >
-                Oops! Page Not Found
-            </motion.h2>
-            <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.2, ease: 'easeIn' }}
-                className='max-w-xl mx-auto text-base text-[#A3A3A3]'
-            >
-                {`Sorry, the page you are looking for doesn't exist or has been moved. Please check your keywords.`}
-            </motion.p>
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.2, ease: 'easeIn' }}
-                className='w-fit mx-auto'
-            >
-                <Button variant='secondary' size='md' onClick={handleBackHome}>
-                    Back to Home
-                </Button>
-            </motion.div>
-        </div>
-    );
+    return <NotFoundContent />;
 };
 
 export default NotFoundPage;

@@ -7,8 +7,17 @@ const bricolageGrotesque = Bricolage_Grotesque({
 });
 
 export const metadata = {
-    title: 'SkillSphere',
-    description: '',
+    title: 'Update Profile | SkillSphere',
+    description:
+        'Update your SkillSphere profile information, manage account settings, and personalize your learning experience.',
+    authors: [{ name: 'Rakibul Rahman' }],
+    metadataBase: new URL('https://skillsphere-rrdev.vercel.app'),
+    openGraph: {
+        title: 'Update Profile | SkillSphere',
+        description: 'Manage and update your SkillSphere profile settings.',
+        url: 'https://skillsphere-rrdev.vercel.app/update-profile',
+        type: 'website',
+    },
 };
 
 const ProfileLayout = ({ children }) => {

@@ -24,7 +24,7 @@ export const updateSchema = z.object({
                 return /\.(jpg|jpeg|png|webp|gif|svg)$/i.test(url);
             },
             {
-                message: 'URL must be an image',
+                message: 'jpg, png, or webp only',
             },
         ),
 });

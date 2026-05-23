@@ -8,7 +8,12 @@ export const proxy = async (request) => {
     });
 
     if (!session) {
-        return NextResponse.redirect(new URL('/auth/login', request.url));
+        return NextResponse.redirect(
+            new URL(
+                `/auth/login?callbackUrl=${request.nextUrl.pathname}`,
+                request.url,
+            ),
+        );
     }
 
     return NextResponse.next();

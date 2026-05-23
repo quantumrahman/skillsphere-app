@@ -8,12 +8,14 @@ import { useState } from 'react';
 import { authClient } from '@/lib/auth-client';
 import { motion } from 'motion/react';
 import { useRouter } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 
 import toast from 'react-hot-toast';
 import ToastMessage from '../ToastMessage/ToastMessage';
 
 const LoginForm = () => {
     const router = useRouter();
+    const params = useSearchParams();
 
     const {
         register,
@@ -35,6 +37,8 @@ const LoginForm = () => {
             password: data?.password,
         });
 
+        const callbackUrl = params.get('callbackUrl');
+
         if (error) {
             toast.custom(
                 <ToastMessage
@@ -50,7 +54,7 @@ const LoginForm = () => {
             <ToastMessage message={'Login successful.'} type='success' />,
         );
 
-        router.push('/');
+        router.push(callbackUrl || '/');
     };
 
     return (

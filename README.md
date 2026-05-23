@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎓 SkillSphere — Modern Online Learning Platform
 
-## Getting Started
+SkillSphere is a modern online learning platform built with Next.js, React, Tailwind CSS, and BetterAuth.
 
-First, run the development server:
+It allows users to explore courses, search by title, view detailed course information, and manage their profile with secure authentication.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The goal of this project was to build a real-world e-learning experience with smooth UI, protected routes, and scalable architecture.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🌐 Live Demo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🔗 https://skillsphere-rrdev.vercel.app
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📂 GitHub Repository
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🔗 https://github.com/quantumrahman/skillsphere-app
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+# ✨ Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔐 Authentication System
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Email & Password login
+- Google authentication
+- Secure session handling (BetterAuth)
+- Protected routes with redirect flow
+
+---
+
+## 📚 Courses System
+
+- Dynamic course listing
+- Course details page
+- Search courses by title
+- Popular & trending courses sections
+- Static curriculum display
+
+---
+
+## 👤 User Profile
+
+- View logged-in user data
+- Update name and profile image
+- Dedicated profile page
+
+---
+
+## 🎨 UI / UX
+
+- Fully responsive design (mobile, tablet, desktop)
+- Persistent navbar and footer
+- Smooth animations (Motion)
+- Loading states with spinner
+- Toast notifications
+- Custom 404 page
+
+---
+
+# 🏗️ Architecture
+
+- Next.js App Router based structure
+- Server/client component separation
+- Protected routing system
+- Modular component design
+
+---
+
+# 🛠️ Tech Stack
+
+- Next.js
+- React
+- Tailwind CSS
+- MongoDB
+- BetterAuth
+- React Hook Form + Zod
+- Motion
+- React Hot Toast
+
+---
+
+# 🧠 Key Highlights
+
+- Real-world authentication flow
+- Clean and reusable component structure
+- Scalable folder architecture
+- Smooth UX with animations & loaders
+- Secure profile management system
+
+---
+
+# 👨‍💻 Developer
+
+**Rakibul Rahman**
+Full Stack Developer focused on building scalable and production-ready web applications using React, Next.js, Node.js, and MongoDB. Passionate about clean architecture, performance, and great user experience.

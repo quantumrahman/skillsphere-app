@@ -5,15 +5,15 @@ import { useAuth } from '@/hooks/useAuth';
 import { useRouter } from 'next/navigation';
 import { BeatLoader } from 'react-spinners';
 import { motion } from 'motion/react';
+import { useState } from 'react';
 
 import Image from 'next/image';
 import Button from '../Button/Button';
 import Badge from '../Badge/Badge';
-import { useState } from 'react';
 
 const ProfileCard = () => {
     const router = useRouter();
-    const [error, setError] = useState(true);
+    const [error, setError] = useState(false);
 
     const { user, loading } = useAuth();
 
@@ -33,13 +33,22 @@ const ProfileCard = () => {
                 transition={{ duration: 0.5, ease: 'easeIn' }}
                 className='relative mx-auto w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full overflow-hidden border-4 border-[#1e1e1e] bg-[#000000] shadow-xl'
             >
-                <Image
-                    src={error ? user?.image : '/images/default-avatar.png'}
-                    alt='profile image'
-                    fill={true}
-                    onError={() => setError(false)}
-                    className='object-cover'
-                />
+                {error || !user?.image ? (
+                    <div className='absolute inset-0 bg-[#1e1e1e]/50 flex items-center justify-center'>
+                        <p className='text-2xl font-bold text-[#ffffff] sm:text-3xl md:text-4xl lg:text-5xl'>
+                            {user?.name?.charAt(0).toUpperCase()}
+                        </p>
+                    </div>
+                ) : (
+                    <Image
+                        src={user.image}
+                        alt='profile picture'
+                        fill
+                        className='object-cover'
+                        onError={() => setError(true)}
+                        priority
+                    />
+                )}
             </motion.div>
             <div className='text-center space-y-3 my-5'>
                 <motion.h1

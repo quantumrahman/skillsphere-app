@@ -7,12 +7,14 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { authClient } from '@/lib/auth-client';
 import { motion } from 'motion/react';
-import { redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 import toast from 'react-hot-toast';
 import ToastMessage from '../ToastMessage/ToastMessage';
 
 const LoginForm = () => {
+    const router = useRouter();
+
     const {
         register,
         handleSubmit,
@@ -33,13 +35,6 @@ const LoginForm = () => {
             password: data?.password,
         });
 
-        if (session) {
-            toast.custom(
-                <ToastMessage message={'Login successful.'} type='success' />,
-            );
-            redirect('/');
-        }
-
         if (error) {
             toast.custom(
                 <ToastMessage
@@ -47,7 +42,15 @@ const LoginForm = () => {
                     type='error'
                 />,
             );
+
+            return;
         }
+
+        toast.custom(
+            <ToastMessage message={'Login successful.'} type='success' />,
+        );
+
+        router.push('/');
     };
 
     return (

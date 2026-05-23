@@ -40,7 +40,15 @@ export const registerSchema = z.object({
         })
         .url({
             message: 'Enter a valid url.',
-        }),
+        })
+        .refine(
+            (url) => {
+                return /\.(jpg|jpeg|png|webp|gif|svg)$/i.test(url);
+            },
+            {
+                message: 'URL must be an image',
+            },
+        ),
 
     email: z
         .string()
